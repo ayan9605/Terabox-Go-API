@@ -4,9 +4,9 @@ WORKDIR /app
 
 RUN apk add --no-cache git ca-certificates
 
-# Install tools
-RUN go install github.com/swaggo/swag/cmd/swag@latest && \
-    go install golang.org/x/tools/cmd/goimports@latest
+# Install tools with compatible versions for Go 1.21
+RUN go install github.com/swaggo/swag/cmd/swag@v1.16.3 && \
+    go install golang.org/x/tools/cmd/goimports@v0.21.0
 
 COPY . .
 
